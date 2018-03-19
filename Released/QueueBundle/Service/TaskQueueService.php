@@ -43,6 +43,6 @@ class TaskQueueService implements EnqueuerInterface
     /** {@inheritdoc} */
     public function retry(BaseTask $task)
     {
-        return $this->enqueuer->enqueue($task);
+        return $this->enqueuer->retry($task);
     }
 }
