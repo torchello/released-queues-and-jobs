@@ -82,7 +82,12 @@ class TaskQueueAmqpExecutor implements TaskLoggerInterface
         } catch (TestException $exception) {
             throw $exception;
         } catch (\Exception $exception) {
-            // TODO: catch and log exception
+            $this->logger->critical(sprintf(
+                '[%s:%s] %s',
+                $exception->getFile(),
+                $exception->getLine(),
+                $exception->getMessage()
+            );
             $this->retryTask($task);
         }
     }
