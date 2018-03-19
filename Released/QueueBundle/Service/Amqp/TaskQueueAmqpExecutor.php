@@ -88,7 +88,7 @@ class TaskQueueAmqpExecutor implements TaskLoggerInterface
                     $exception->getFile(),
                     $exception->getLine(),
                     $exception->getMessage()
-                );
+                ));
             }
             $this->retryTask($task);
         }
